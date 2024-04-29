@@ -28,12 +28,12 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
         return allLatestRates;
     }
 
-//    @Override
-//    public List<ExchangeRate> getAllFxRatesForCurrency(String currencyCode) {
-//        List<ExchangeRate> allByCcy2 = exchangeRatesRepository.findAllByCcy2(currencyCode);
-//        System.out.println(allByCcy2);
-//        return allByCcy2;
-//    }
+    @Override
+    public List<ExchangeRate> getAllFxRatesForCurrency(String currencyCode) {
+        List<ExchangeRate> allByCcy2 = exchangeRatesRepository.findAllByCcy2(currencyCode);
+        System.out.println(allByCcy2);
+        return allByCcy2;
+    }
 
 //    @Override
 //    public ExchangeRate test() {

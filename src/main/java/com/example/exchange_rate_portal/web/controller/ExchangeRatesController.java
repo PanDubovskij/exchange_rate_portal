@@ -5,12 +5,13 @@ import com.example.exchange_rate_portal.service.ExchangeRatesService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v0.0.1/exchange-rates-portal")
+@RequestMapping("/api/v0.0.2/exchange-rates-portal")
 public final class ExchangeRatesController {
 
     private final ExchangeRatesService exchangeRatesService;
@@ -24,10 +25,10 @@ public final class ExchangeRatesController {
         return exchangeRatesService.getCurrentFxRatesForEuro();
     }
 
-//    @GetMapping(value = "/rates-for-currency", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public List<ExchangeRate> getAllFxRatesForCurrency(@RequestParam String currencyCode) {
-//        return exchangeRatesService.getAllFxRatesForCurrency(currencyCode);
-//    }
+    @GetMapping(value = "/rates-for-currency", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ExchangeRate> getAllFxRatesForCurrency(@RequestParam String currencyCode) {
+        return exchangeRatesService.getAllFxRatesForCurrency(currencyCode);
+    }
 //
 //    @GetMapping(value = "/test")
 //    public List<ExchangeRate> test() {

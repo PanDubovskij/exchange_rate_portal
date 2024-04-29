@@ -15,5 +15,5 @@ public interface ExchangeRatesRepository extends CrudRepository<ExchangeRate, Lo
     List<ExchangeRate> findAllByDt(/*@Param("dt")*/ LocalDate dt);
 
     //    @Query("SELECT tp, dt, ccy1, amt1, ccy2, amt2 FROM rates WHERE ccy2=:ccy2 ")
-//    List<ExchangeRate> findAllByCcy2(/*@Param("ccy2")*/String currency);
+    List<ExchangeRate> findAllByCcy2(/*@Param("ccy2")*/String currency);
 }

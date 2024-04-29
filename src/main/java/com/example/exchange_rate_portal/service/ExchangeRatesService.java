@@ -8,7 +8,7 @@ public interface ExchangeRatesService {
 
     List<ExchangeRate> getCurrentFxRatesForEuro();
 
-//    List<ExchangeRate> getAllFxRatesForCurrency(String currencyCode);
+    List<ExchangeRate> getAllFxRatesForCurrency(String currencyCode);
 
 //    ExchangeRate test();
 }
