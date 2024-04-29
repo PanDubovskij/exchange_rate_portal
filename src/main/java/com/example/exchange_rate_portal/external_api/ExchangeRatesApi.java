@@ -1,6 +1,6 @@
-package com.example.exchange_rate_portal.api;
+package com.example.exchange_rate_portal.external_api;
 
-import com.example.exchange_rate_portal.api.entity.FxRates;
+import com.example.exchange_rate_portal.external_api.entity.FxRates;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package com.example.exchange_rate_portal.api.entity;
+package com.example.exchange_rate_portal.external_api.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;

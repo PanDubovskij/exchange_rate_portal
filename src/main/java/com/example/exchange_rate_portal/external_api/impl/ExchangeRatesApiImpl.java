@@ -1,7 +1,7 @@
-package com.example.exchange_rate_portal.api.impl;
+package com.example.exchange_rate_portal.external_api.impl;
 
-import com.example.exchange_rate_portal.api.ExchangeRatesApi;
-import com.example.exchange_rate_portal.api.entity.FxRates;
+import com.example.exchange_rate_portal.external_api.ExchangeRatesApi;
+import com.example.exchange_rate_portal.external_api.entity.FxRates;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 

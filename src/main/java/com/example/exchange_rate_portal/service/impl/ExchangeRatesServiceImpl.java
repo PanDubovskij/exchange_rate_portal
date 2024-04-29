@@ -1,6 +1,6 @@
 package com.example.exchange_rate_portal.service.impl;
 
-import com.example.exchange_rate_portal.api.ExchangeRatesApi;
+import com.example.exchange_rate_portal.external_api.ExchangeRatesApi;
 import com.example.exchange_rate_portal.domain.ExchangeRate;
 import com.example.exchange_rate_portal.repository.ExchangeRatesRepository;
 import com.example.exchange_rate_portal.service.ExchangeRatesService;
