@@ -29,6 +29,12 @@ public final class ExchangeRatesController {
     public List<ExchangeRate> getAllFxRatesForCurrency(@RequestParam String currencyCode) {
         return exchangeRatesService.getAllFxRatesForCurrency(currencyCode);
     }
+
+    @GetMapping(value = "/all-rates", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ExchangeRate> getRates() {
+        return exchangeRatesService.getAllRates();
+    }
+
 //
 //    @GetMapping(value = "/test")
 //    public List<ExchangeRate> test() {

@@ -35,6 +35,11 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
         return allByCcy2;
     }
 
+    @Override
+    public List<ExchangeRate> getAllRates() {
+        return (List<ExchangeRate>) exchangeRatesRepository.findAll();
+    }
+
 //    @Override
 //    public ExchangeRate test() {
 //        return null;

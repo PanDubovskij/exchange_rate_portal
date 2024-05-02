@@ -1,7 +1,5 @@
 package com.example.exchange_rate_portal.domain;
 
-//import jakarta.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
@@ -10,7 +8,6 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.time.LocalDate;
 import java.util.Objects;
 
-//@Entity
 @Table(name = "RATES")
 public class ExchangeRate {
 

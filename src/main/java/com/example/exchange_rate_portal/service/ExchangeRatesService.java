@@ -10,5 +10,7 @@ public interface ExchangeRatesService {
 
     List<ExchangeRate> getAllFxRatesForCurrency(String currencyCode);
 
+    List<ExchangeRate> getAllRates();
+
 //    ExchangeRate test();
 }
