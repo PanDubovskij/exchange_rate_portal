@@ -9,5 +9,4 @@ public interface ExchangeRatesApi {
     FxRates getCurrentFxRates(String tp);
 
     FxRates getFxRatesForCurrency(String tp, String ccy, LocalDate dtFrom, LocalDate dtTo);
-
 }

@@ -15,7 +15,7 @@ export class CentralBankRatesComponent implements OnInit {
   constructor(private exchangeRatesService: ExchangeRatesService) {}
 
   ngOnInit() {
-    this.exchangeRatesService.getAllRates().subscribe(data => {
+    this.exchangeRatesService.getExchangeRates().subscribe(data => {
       this.exchangeRates = data;
     });
   }

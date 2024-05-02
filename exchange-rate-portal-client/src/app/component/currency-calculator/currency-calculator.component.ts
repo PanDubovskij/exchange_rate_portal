@@ -22,7 +22,7 @@ export class CurrencyCalculatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.exchangeRatesService.getAllRates().subscribe(data => {
+    this.exchangeRatesService.getExchangeRates().subscribe(data => {
       this.exchangeRates = data;
     });
   }

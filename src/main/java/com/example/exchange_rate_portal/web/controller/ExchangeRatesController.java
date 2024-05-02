@@ -34,10 +34,4 @@ public final class ExchangeRatesController {
     public List<ExchangeRate> getRates() {
         return exchangeRatesService.getAllRates();
     }
-
-//
-//    @GetMapping(value = "/test")
-//    public List<ExchangeRate> test() {
-//        return exchangeRatesRepository.findAllByCcy2("aud");
-//    }
 }

@@ -1,8 +1,8 @@
 <div>
   <h1>Exchange Rate History</h1>
   <select [(ngModel)]="selectedCurrency" (change)="onSelectCurrency(selectedCurrency)">
-    <option *ngFor="let rate of exchangeRateHistory" [value]="rate.ccy2">
-      {{ rate.ccy2 }}
+    <option *ngFor="let currency of currencies" [value]="currency">
+      {{ currency }}
     </option>
   </select>
   <div *ngIf="exchangeRateHistory && exchangeRateHistory.length">

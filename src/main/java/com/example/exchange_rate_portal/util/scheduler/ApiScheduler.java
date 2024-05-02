@@ -1,4 +1,4 @@
-package com.example.exchange_rate_portal.scheduler;
+package com.example.exchange_rate_portal.util.scheduler;
 
 import com.example.exchange_rate_portal.domain.ExchangeRate;
 import com.example.exchange_rate_portal.external_api.ExchangeRatesApi;
@@ -34,6 +34,5 @@ public class ApiScheduler {
             exchangeRates.add(mapper.mapFrom(fx));
         }
         exchangeRatesRepository.saveAll(exchangeRates);
-        System.out.println("update");
     }
 }

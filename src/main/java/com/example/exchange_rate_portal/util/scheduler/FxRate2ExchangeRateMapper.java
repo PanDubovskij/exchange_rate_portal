@@ -1,4 +1,4 @@
-package com.example.exchange_rate_portal.scheduler;
+package com.example.exchange_rate_portal.util.scheduler;
 
 import com.example.exchange_rate_portal.domain.ExchangeRate;
 import com.example.exchange_rate_portal.external_api.entity.FxRate;
@@ -15,11 +15,11 @@ public class FxRate2ExchangeRateMapper {
 
         return new ExchangeRate(
                 null,
-                rate.getTp(),
+                rate.getTp().toUpperCase(),
                 date,
-                rate.getCcyAmts().get(0).getCcy(),
+                rate.getCcyAmts().get(0).getCcy().toUpperCase(),
                 amt1,
-                rate.getCcyAmts().get(1).getCcy(),
+                rate.getCcyAmts().get(1).getCcy().toUpperCase(),
                 amt2
         );
     }

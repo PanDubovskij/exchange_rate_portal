@@ -12,23 +12,26 @@ import {ExchangeRate} from "../../model/exchange-rate.model";
   imports: [CommonModule, FormsModule]
 })
 export class ExchangeRateHistoryComponent implements OnInit {
-  public exchangeRateHistory: ExchangeRate[]=[];
-  public selectedCurrency: string='EUR';
+  public currencies: string[] = [];
+  public rates: ExchangeRate[] = [];
+  public exchangeRateHistory: ExchangeRate[] = [];
+  public selectedCurrency: string = 'EUR';
 
-  constructor(private exchangeRatesService: ExchangeRatesService) {}
+  constructor(private exchangeRatesService: ExchangeRatesService) {
+  }
 
   ngOnInit() {
-    // Initially, no currency is selected, so no history is displayed
-    this.exchangeRatesService.getAllRates().subscribe(data => {
-      console.log(data)
-      this.exchangeRateHistory = data;
+    this.exchangeRatesService.getExchangeRates().subscribe(data => {
+      this.rates = data
+      for (let rate of this.rates) {
+        this.currencies.push(rate.ccy2)
+      }
     });
   }
 
   onSelectCurrency(currency: string) {
     this.selectedCurrency = currency;
-    this.exchangeRatesService.getAllRates().subscribe(data => {
-      console.log(data)
+    this.exchangeRatesService.getExchangeRateHistory(this.selectedCurrency).subscribe(data => {
       this.exchangeRateHistory = data;
     });
   }
