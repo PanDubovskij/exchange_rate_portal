@@ -1,0 +1,14 @@
+<div>
+  <h1>Currency Calculator</h1>
+  <input type="number" [(ngModel)]="amount" placeholder="Enter amount" />
+  <select [(ngModel)]="selectedCurrency" (change)="calculate()">
+    <option *ngFor="let rate of exchangeRates" [value]="rate.ccy2">
+      {{ rate.ccy2 }}
+    </option>
+  </select>
+  <button (click)="calculate()">Calculate</button>
+  <div *ngIf="calculatedAmount">
+    <p>Amount in {{ selectedCurrency }}: {{ calculatedAmount | number:'1.2-2' }}</p>
+    <p>Exchange Rate: {{ exchangeRate | number:'1.2-2' }}</p>
+  </div>
+</div>
