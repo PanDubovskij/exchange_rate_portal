@@ -1,0 +1,17 @@
+<div>
+  <h1>Central Bank Exchange Rates</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Currency</th>
+      <th>Rate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rate of exchangeRates">
+      <td>{{ rate.ccy2 }}</td>
+      <td>{{ rate.amt2 }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

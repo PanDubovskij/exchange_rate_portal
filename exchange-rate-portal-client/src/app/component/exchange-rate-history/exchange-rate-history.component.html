@@ -1,0 +1,25 @@
+<div>
+  <h1>Exchange Rate History</h1>
+  <select [(ngModel)]="selectedCurrency" (change)="onSelectCurrency(selectedCurrency)">
+    <option *ngFor="let currency of currencies" [value]="currency">
+      {{ currency }}
+    </option>
+  </select>
+  <div *ngIf="exchangeRateHistory && exchangeRateHistory.length">
+    <h2>History for {{ selectedCurrency }}</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Rate</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let history of exchangeRateHistory">
+        <td>{{ history.dt }}</td>
+        <td>{{ history.amt2 }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

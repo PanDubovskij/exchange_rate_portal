@@ -8,6 +8,8 @@ public class ExchangeRatePortalApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ExchangeRatePortalApplication.class, args);
+
+
     }
 
 }
