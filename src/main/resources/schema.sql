@@ -1,4 +1,4 @@
--- drop table if exists rates;
+drop table if exists rates;
 create table if not exists rates
 (
     id   bigint auto_increment primary key,
