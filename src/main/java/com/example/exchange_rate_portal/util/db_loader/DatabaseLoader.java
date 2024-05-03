@@ -5,6 +5,7 @@ import com.example.exchange_rate_portal.external_api.ExchangeRatesApi;
 import com.example.exchange_rate_portal.external_api.entity.FxRate;
 import com.example.exchange_rate_portal.external_api.entity.FxRates;
 import com.example.exchange_rate_portal.repository.ExchangeRatesRepository;
+import com.example.exchange_rate_portal.util.LastUpdatedDate;
 import com.example.exchange_rate_portal.util.scheduler.FxRate2ExchangeRateMapper;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -35,8 +36,11 @@ public class DatabaseLoader {
         //The earliest date of rates according to the api docs
         LocalDate dtFrom = LocalDate.of(2014, 12, 30);
         LocalDate dtTo = LocalDate.now();
+        List<FxRate> currentRates = api.getCurrentFxRates(tp).getFxRates();
+        LastUpdatedDate.updateDate(currentRates);
+
         ArrayList<String> currencyCodes = new ArrayList<>();
-        api.getCurrentFxRates(tp).getFxRates().forEach(fxRate -> currencyCodes.add(fxRate.getCcyAmts().get(1).getCcy()));
+        currentRates.forEach(fxRate -> currencyCodes.add(fxRate.getCcyAmts().get(1).getCcy()));
         for (String currencyCode : currencyCodes) {
             System.out.println(currencyCode);
             FxRates fxRates = api.getFxRatesForCurrency(tp, currencyCode, dtFrom, dtTo);

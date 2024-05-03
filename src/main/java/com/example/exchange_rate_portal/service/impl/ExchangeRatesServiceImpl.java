@@ -3,9 +3,9 @@ package com.example.exchange_rate_portal.service.impl;
 import com.example.exchange_rate_portal.domain.ExchangeRate;
 import com.example.exchange_rate_portal.repository.ExchangeRatesRepository;
 import com.example.exchange_rate_portal.service.ExchangeRatesService;
+import com.example.exchange_rate_portal.util.LastUpdatedDate;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -19,7 +19,7 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
 
     @Override
     public List<ExchangeRate> getCurrentFxRatesForEuro() {
-        return exchangeRatesRepository.findAllByDt(LocalDate.now());
+         return exchangeRatesRepository.findAllByDt(LastUpdatedDate.getLastUpdatedDate());
     }
 
     @Override
