@@ -1,5 +1,6 @@
 package com.example.exchange_rate_portal.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
@@ -19,6 +20,7 @@ public class ExchangeRate {
     private String tp;
 
     @Column("DT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private LocalDate dt;
 
     @Column("CCY1")

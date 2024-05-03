@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  backend:
+    image: pandubovskij/rates-backend
+    container_name: rates-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.h2.Driver
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=
+  frontend:
+    image: pandubovskij/rates-frontend
+    container_name: rates-frntend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+

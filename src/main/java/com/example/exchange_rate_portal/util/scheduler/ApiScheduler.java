@@ -5,6 +5,7 @@ import com.example.exchange_rate_portal.external_api.ExchangeRatesApi;
 import com.example.exchange_rate_portal.external_api.entity.FxRate;
 import com.example.exchange_rate_portal.external_api.entity.FxRates;
 import com.example.exchange_rate_portal.repository.ExchangeRatesRepository;
+import com.example.exchange_rate_portal.util.LastUpdatedDate;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -29,10 +30,13 @@ public class ApiScheduler {
     @Scheduled(cron = "0 0 7 * * MON-FRI")
     public void updateCurrentFxRates() {
         FxRates fxRates = exchangeRatesApi.getCurrentFxRates("EU");
-        List<ExchangeRate> exchangeRates = new ArrayList<>();
-        for (FxRate fx : fxRates.getFxRates()) {
-            exchangeRates.add(mapper.mapFrom(fx));
+        List<FxRate> currentRates = fxRates.getFxRates();
+        LastUpdatedDate.updateDate(currentRates);
+
+        List<ExchangeRate> currentExchangeRates = new ArrayList<>();
+        for (FxRate fx : currentRates) {
+            currentExchangeRates.add(mapper.mapFrom(fx));
         }
-        exchangeRatesRepository.saveAll(exchangeRates);
+        exchangeRatesRepository.saveAll(currentExchangeRates);
     }
 }
